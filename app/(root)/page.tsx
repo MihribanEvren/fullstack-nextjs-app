@@ -10,9 +10,9 @@ export default async function Home({
 
   const posts = [
     {
-      _createdAt: 'Yesterday',
+      _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
+      author: { _id: 1, name: 'Mihi' },
       _id: 1,
       description: 'This is a description of the startup',
       image:
@@ -21,10 +21,10 @@ export default async function Home({
       title: 'Wall-e',
     },
     {
-      _createdAt: 'Yesterday',
+      _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
-      _id: 1,
+      author: { _id: 2, name: 'Mihi' },
+      _id: 2,
       description: 'This is a description of the startup',
       image:
         'https://images.unsplash.com/photo-1605493624455-a56d6d312f6f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
@@ -32,10 +32,10 @@ export default async function Home({
       title: 'Wall-e',
     },
     {
-      _createdAt: 'Yesterday',
+      _createdAt: new Date(),
       views: 55,
-      author: { _id: 1 },
-      _id: 1,
+      author: { _id: 3, name: 'Mihi' },
+      _id: 3,
       description: 'This is a description of the startup',
       image:
         'https://images.unsplash.com/photo-1605493624455-a56d6d312f6f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
