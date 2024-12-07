@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen",
+    "typegen": "sanity schema extract --path=./sanity/extract.json && sanity typegen generate"
   },
   "packageManager": "npm@10.5.2",
   "overrides": {
@@ -22,17 +25,21 @@
     "clsx": "^2.1.1",
     "fullstack-nextjs-app": "file:",
     "lucide-react": "^0.464.0",
-    "next": "15.0.3",
+    "markdown-it": "^14.1.0",
+    "next": "^15.0.4",
     "next-auth": "^5.0.0-beta.25",
     "next-sanity": "^9.8.3-canary.1",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "sanity": "^3.65.1",
+    "sanity-plugin-markdown": "^5.0.0",
+    "server-only": "^0.0.1",
     "styled-components": "^6.1.13",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/markdown-it": "^14.1.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

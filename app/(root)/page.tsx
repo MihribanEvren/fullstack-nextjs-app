@@ -1,5 +1,7 @@
-import StartupCard from '@/components/StartupCard';
+import StartupCard, { StartupCardType } from '@/components/StartupCard';
 import SearchForm from '@/components/SearchForm';
+import { sanityFetch, SanityLive } from '@/sanity/lib/live';
+import { STARTUPS_QUERY } from '@/sanity/lib/queries';
 
 export default async function Home({
   searchParams,
@@ -7,42 +9,9 @@ export default async function Home({
   searchParams: Promise<{ query?: string }>;
 }) {
   const query = (await searchParams).query;
+  const params = { search: query || null };
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: 'Mihi' },
-      _id: 1,
-      description: 'This is a description of the startup',
-      image:
-        'https://images.unsplash.com/photo-1605493624455-a56d6d312f6f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Robots',
-      title: 'Wall-e',
-    },
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 2, name: 'Mihi' },
-      _id: 2,
-      description: 'This is a description of the startup',
-      image:
-        'https://images.unsplash.com/photo-1605493624455-a56d6d312f6f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Robots',
-      title: 'Wall-e',
-    },
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 3, name: 'Mihi' },
-      _id: 3,
-      description: 'This is a description of the startup',
-      image:
-        'https://images.unsplash.com/photo-1605493624455-a56d6d312f6f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      category: 'Robots',
-      title: 'Wall-e',
-    },
-  ];
+  const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
 
   return (
     <>
@@ -74,6 +43,7 @@ export default async function Home({
           )}
         </ul>
       </section>
+      <SanityLive />
     </>
   );
 }
